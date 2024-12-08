@@ -2,6 +2,14 @@
 
 ## Deploying-A-Multi-Tier-Website-Using-AWS-EC2
 
+Company ABC wants to move their product to AWS. They have the following things setup right now:
+1- MySQL DB
+2. Website (PHP)
+
+The company wants high availability on this product, therefore wants autoscaling to be enabled on this website.
+
+Steps to solve:
+
 1- Create a VPC
 
 2- Create 2 Public subnet( we need atleast 2 AZs for ELB) and 1 private subnet------ Public1 and private subnet should be in same AZs
