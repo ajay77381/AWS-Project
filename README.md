@@ -1,6 +1,6 @@
 # AWS-Project
 
-## Employee profile of xyz company - New employees input their information and upload. Existing employees can get their information.
+## Employee profile of xyz company - New employees input their information and upload photos. Existing employees can get their information.
 
 
 Technical Architecture
