@@ -1,69 +1,46 @@
 # AWS-Project
 
-## Deploying-A-Multi-Tier-Website-Using-AWS-EC2
+## Employee profile of xyz company - New employees input their information and upload. Existing employees can get their information.
 
-Company ABC wants to move their product to AWS. They have the following things setup right now:
-1- MySQL DB
-2. Website (PHP)
+![Step-01 Created the VPC](https://github.com/user-attachments/assets/868db061-b6c9-41dd-8e00-65c23cd75ca4)
 
-The company wants high availability on this product, therefore wants autoscaling to be enabled on this website.
+![Step-02 Created two public subnet(20 20 1 0   20 20 1 1 and 1 private subnet](https://github.com/user-attachments/assets/3ff57277-cfe9-41e7-bcfa-b77fcdba3e5f)
 
-Steps to solve:
+![Step-3 created IGW and attached in VPC](https://github.com/user-attachments/assets/4f3c04a6-befb-4892-90f5-77dfe07d764a)
 
-1- Create a VPC
+![Step-04 created nat gateway and allocated elastic ip](https://github.com/user-attachments/assets/33affca8-4c4b-42c3-a9e1-a9fccbb5debe)
 
-2- Create 2 Public subnet( we need atleast 2 AZs for ELB) and 1 private subnet------ Public1 and private subnet should be in same AZs
+![Step-05 created the route two router table - one public and one private and associated with subnet](https://github.com/user-attachments/assets/196e0e7e-83a1-4557-ae9e-a020b1b4154f)
 
-3- create a IGW and attach to VPC
+![Step-06 created two instance inside VPC](https://github.com/user-attachments/assets/5f44d283-b72d-466c-9375-faba0afa222b)
 
-4- Create a NAT in Public1-subnet
+![Step-07 created ALB and target group](https://github.com/user-attachments/assets/7567d337-2389-43ed-a025-9536f461f810)
 
-5- Create private and public Route Tables ------ edit the routes and associate it
+![Step-08 Created the S3 bucket and uploaded the about us page and made it public](https://github.com/user-attachments/assets/001c4f33-3d02-4ac7-984a-0b1e87ff2f2b)
 
-6- Create one Bastion Host in public1 subnet and Appliaction instance in your private subnet.
+![Step-09 Created Route 53 hosted zone](https://github.com/user-attachments/assets/213e1fd6-061c-45e0-b645-141416ac5ac4)
 
-7- Create a S3 bucket
+![Step-10 changed the name server in Domain](https://github.com/user-attachments/assets/401b8b35-e5ca-4868-8737-2741eada842c)
 
-8- Create RDS(mysql)
+![Step-11 Public Ec2 instance connected from private Ec2](https://github.com/user-attachments/assets/72177d47-12b4-4337-b5bd-590c2e6b63ef)
 
-9- Create a dynamoDb table(Name of the table should be same as line 86 of the github code(https://github.com/Training-demo/aws-code-main)<EmpApp.py>), Partition key shoould be same as line 88 and change from string to number.
+![Step-12 My SQL Client installed on Beston host for connect the RDS](https://github.com/user-attachments/assets/17a1c5d3-ba29-4bb6-8277-21335041ba60)
 
-10- Create A hosted Zone(Route53)------ Copy paste the Name Servers from your hosted zone to DN.
+![Step-13- My SQL DATA base connected from private host , i i am accessing this private host by public host](https://github.com/user-attachments/assets/55ef8bb1-f38c-4c13-b8d9-5512329a7816)
 
-11- Create a Record---- Select Application Load Balancer---> Your Region--> Your Load Balancer(A-type record)
+![Step-14 checked default data bases](https://github.com/user-attachments/assets/ebb988f8-306d-4379-867d-3a03c591ca67)
 
-12- Create A IAM ROLE(s3fullaccess, dynamoDb full access, Rds Full access)
+![Step-15 created table](https://github.com/user-attachments/assets/536c7f5e-8cb9-4261-b92f-3d27089a93b1)
 
-13- Come to application instance- selecct your application instance---> Actions--> security--> modify IAMRole--> Attach your role
+![Step-16 coloned the data from git hub](https://github.com/user-attachments/assets/ea6be129-c513-410f-ad60-a5c814355031)
 
-14- login into your Bastion Host---> nano key--> paste the key--> chmod 400 key--> ssh -i key ubuntu@private ip of application instance
+![Step-17 you need to change the config file](https://github.com/user-attachments/assets/3e971b30-1e45-47ac-9387-852d6aecaa56)
 
-15- sudo apt-get install mysql-client.
+![Step-18 installed the all the dependency software](https://github.com/user-attachments/assets/f7ef6525-b5e3-40d6-8e26-4785219e4329)
 
-16- sudo mysql -h (endpoint of your RDS) -u admin -p (give the password)
+![Step-19 RDS data base connected after gived the correct data bse name](https://github.com/user-attachments/assets/a9602034-6b21-4dad-b4a6-729c1bc0f7e3)
 
-17- show databases;------>use Db(name)----> show tables;(table will be empty)
+![Step20 data base working](https://github.com/user-attachments/assets/e722f2a6-f978-48a3-b1d2-ec1243b351e5)
 
-18- create table employee(emp_id VARCHAR(20), first_name VARCHAR(20), last_name VARCHAR(20), primary_skills VARCHAR(20), location VARCHAR(20));
-
-19- describe employee;
-
-20- git clone (paste the code link from the gitHub)
-
-21- 1 git clone https://github.com/Training-Demo/aws-code-main.git
-
-    2  ls
-    
-    3  cd aws-code-main
-    
-    4  ls
-    
-    5  nano config.py
-    
-    6  nano EmpApp.py (Check or search for DynamoDb and change the region according to you---which region you are working in)
-    
-    7  history
-    
-22- Install the dependencies from the gitHub
 
 
