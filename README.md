@@ -43,6 +43,7 @@
 20- git clone (paste the code link from the gitHub)
 
 21- 1 git clone https://github.com/Training-Demo/aws-code-main.git
+
     2  ls
     
     3  cd aws-code-main
